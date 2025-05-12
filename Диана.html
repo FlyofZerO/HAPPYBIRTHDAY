@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Текст с музыкой</title>
+    <style>
+        body {
+    		font-family: 'Segoe UI', sans-serif;
+   		 background-image: url('fon.jpg');
+    		background-size: cover;
+    		background-position: center;
+    		background-repeat: no-repeat;
+    		display: flex;
+    		flex-direction: column;
+    		align-items: center;
+    		justify-content: center;
+    		min-height: 100vh;
+    		margin: 0;
+   		 padding: 20px;
+   		 text-align: center;
+    		backdrop-filter: brightness(0.95); /* опционально — затемняет фон */
+	}
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+        }
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ПРИГЛАШАЮ ТЕБЯ НА!</h1>
+    
+    <!-- Изображение -->
+    <img src="image.png" alt="Фоновая картинка" style="max-width: 80%; height: auto; margin-top: 20px; border-radius: 10px;">
+
+    <p>ВКЛЮЧИ МУЗЫКУ ОБЯЗАТЕЛЬНО</p>
+
+  
+        <button onclick="togglePlay()">ЖМИ</button>
+        <label>
+            ЕСЛИ ГРОМКО:
+            <input type="range" min="0" max="1" step="0.01" value="1" onchange="setVolume(this.value)">
+        </label>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="diana.mp3" type="audio/mpeg">
+        
+    </audio>
+
+    <script>
+        const audio = document.getElementById('backgroundMusic');
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function setVolume(value) {
+            audio.volume = value;
+        }
+    </script>
+
+</body>
+</html>
